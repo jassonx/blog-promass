@@ -14,7 +14,7 @@ const CardPost = (posts) => {
                 postSelected === i ? SetPostSelected(null) : SetPostSelected(i)
               }
               key={i}
-              className=" dark:md:hover:bg-gray-700 hover:p-4 hover:cursor-pointer bg-white dark:bg-slate-900 rounded-lg px-6 py-1 ring-1 ring-slate-900/5 shadow-xl"
+              className="mt-4 dark:md:hover:bg-gray-700 hover:p-4 hover:cursor-pointer bg-white dark:bg-slate-900 rounded-lg px-6 py-1 ring-1 ring-slate-900/5 shadow-xl"
             >
               <h3 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
                 {post.title}
@@ -25,7 +25,7 @@ const CardPost = (posts) => {
                   ? post.content
                   : `${post.content.substring(0, 70)}...`}
               </p>
-              <div className="flex justify-end mt-2">
+              <div className="flex justify-end mt-2 text-white">
                 <div
                   className="text-white h-7 w-7 shadow-inner border-2 border-white rounded-full -mt-1 flex items-center justify-center mr-2"
                   style={{ backgroundColor: `${DinamicColor()}` }}
