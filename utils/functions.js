@@ -6,3 +6,12 @@ export const DinamicColor = () => {
   }
   return color;
 };
+
+export const ExtractFormData = (event) => {
+  return Array.from(event.target.elements)
+    .filter((input) => input.name)
+    .reduce(
+      (obj, input) => Object.assign(obj, { [input.name]: input.value }),
+      {}
+    );
+};

@@ -1,15 +1,20 @@
-class WebApiPost {
-  static createUser(data) {
-    return;
-    //WebApi.ApisType(`/auth/login`, "post", data);
-  }
-  static getUsers(data) {
-    return "hola"; //WebApi.ApisType(`/auth/login`, "post", data);
+import WebApi from "./webApi";
+
+class WebApiUser {
+  static login(data) {
+    return WebApi.ApisType(`/users/login`, "post", data);
   }
 
-  static deleteUser() {
-    return "Hello world"; //WebApi.ApisType(`/users`, "get");
+  static createUser(data) {
+    return WebApi.ApisType(`/users`, "post", data);
+  }
+  static getUsers() {
+    return WebApi.ApisType(`/users`, "get");
+  }
+
+  static deleteUser(id) {
+    return WebApi.ApisType(`/users/${id}`, "delete");
   }
 }
 
-export default WebApiPost;
+export default WebApiUser;

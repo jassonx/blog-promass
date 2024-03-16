@@ -2,16 +2,13 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export const domainApi = process.browser
-  ? process.env.NEXT_PUBLIC_API_BASE_URL
-  : process.env.API_BASE_URL;
+export const domainApi = import.meta.env.VITE_API_BASE_URL;
 
-export const typeHttp = process.browser
-  ? process.env.NEXT_PUBLIC_USE_HTTPS
-  : process.env.USE_HTTPS;
+export const typeHttp = import.meta.env.VITE_USE_HTTPS;
+export const port = import.meta.env.VITE_API_PORT;
 
 export const config = {
-  baseURL: `${typeHttp}://${domainApi}/`,
+  baseURL: `${typeHttp}://${domainApi}${port}/`,
   headers: {
     "Content-Type": "application/json",
   },

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { DinamicColor } from "../../../utils/functions";
 
-const CardPost = (posts) => {
+const CardPost = ({ posts = [] }) => {
   const [postSelected, SetPostSelected] = useState(null);
 
-  const Post = (posts) => {
+  const Post = ({ data }) => {
+    console.log("🚀 ~ Post ~ data:", data);
     return (
       <>
-        {posts.posts.data.map((post, i) => {
+        {data.map((post, i) => {
           return (
             <div
               onClick={() =>
@@ -18,7 +19,10 @@ const CardPost = (posts) => {
             >
               <h3 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">
                 {post.title}
-                <span className="ml-4 text-sm text-gray-600">{post.date}</span>
+                <span className="ml-4 text-sm text-gray-600">
+                  {post.createdAt.substring(0, 10)} -
+                  {post.createdAt.substring(11, 18)}
+                </span>
               </h3>
               <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm text-justify">
                 {postSelected === i || post.content.length < 70
@@ -30,9 +34,9 @@ const CardPost = (posts) => {
                   className="text-white h-7 w-7 shadow-inner border-2 border-white rounded-full -mt-1 flex items-center justify-center mr-2"
                   style={{ backgroundColor: `${DinamicColor()}` }}
                 >
-                  {post.user.substring(0, 1)}
+                  {post.user.name.substring(0, 1)}
                 </div>
-                {post.user}
+                {post.user.name}
               </div>
             </div>
           );
@@ -41,7 +45,7 @@ const CardPost = (posts) => {
     );
   };
 
-  return <Post posts={posts} />;
+  return <Post data={posts} />;
 };
 
 export default CardPost;
