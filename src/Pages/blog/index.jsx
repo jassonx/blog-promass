@@ -6,6 +6,7 @@ import { ExtractFormData } from "../../../utils/functions";
 import Search from "../../components/Search/index";
 import CardPost from "../../components/card/card";
 import MainLayout from "../../components/layout/MainLayout";
+import NoContent from "./components/noContent";
 import PostForm from "./components/postForm";
 
 const Blog = ({ ...props }) => {
@@ -69,15 +70,7 @@ const Blog = ({ ...props }) => {
       <Search setViewForm={setViewForm} filter={dataForm} />
       {viewForm && <PostForm savePost={savePost} setViewForm={setViewForm} />}
       <div className="grid grid-cols-1 text-gray-50 gap-4 w-3/4">
-        {posts.length > 0 ? (
-          <CardPost posts={posts} />
-        ) : (
-          <div className="flex justify-center mt-10 border-dashed border-2 bord p-10">
-            <span className="text-gray-300 text-3xl font-bold">
-              No hay contenido
-            </span>
-          </div>
-        )}
+        {posts.length > 0 ? <CardPost posts={posts} /> : <NoContent />}
       </div>
     </MainLayout>
   );
