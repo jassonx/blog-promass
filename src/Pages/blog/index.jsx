@@ -59,6 +59,7 @@ const Blog = ({ ...props }) => {
       }
       console.log("🚀 ~ filter ~ data:", query);
       const response = await WebApiPost.filterPosts(query);
+      console.log("🚀 ~ filter ~ response:", response);
       setPosts(response.data);
     } catch (error) {
       console.log(error);

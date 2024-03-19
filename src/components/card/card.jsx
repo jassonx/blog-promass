@@ -5,7 +5,6 @@ const CardPost = ({ posts = [] }) => {
   const [postSelected, SetPostSelected] = useState(null);
 
   const Post = ({ data }) => {
-    console.log("🚀 ~ Post ~ data:", data);
     return (
       <>
         {data.map((post, i) => {
